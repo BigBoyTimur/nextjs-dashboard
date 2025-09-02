@@ -5,10 +5,19 @@ import reactPlugin from 'eslint-plugin-react';
 import reactHooks from 'eslint-plugin-react-hooks';
 import nextPlugin from '@next/eslint-plugin-next';
 import globals from 'globals';
+import jsxA11y from 'eslint-plugin-jsx-a11y';
 
 export default [
+    {
+        ignores: [
+            'node_modules',
+            '.next',
+        ],
+    },
+
     // base rules JS
     js.configs.recommended,
+    jsxA11y.flatConfigs.recommended,
 
     // TS/TSX + React + Next
     {
@@ -64,6 +73,7 @@ export default [
 
             // Next
             'next/no-html-link-for-pages': 'off',
+
         },
         settings: {
             react: { version: 'detect' },
